@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253230136573",
+    "project_id": "trail-making-test",
+    "storage_bucket": "trail-making-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253230136573:android:44cdfeb97c087d4789d294",
+        "android_client_info": {
+          "package_name": "com.example.tmt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253230136573-autbj8t828m6apl8t5cev28dr1iudftq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy6egr55mXnfv3_BjeonYfRzssBGGum10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253230136573-autbj8t828m6apl8t5cev28dr1iudftq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

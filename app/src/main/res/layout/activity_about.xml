@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context=".About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/main_toolbar_about"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="192dp"
+            android:padding="30dp"
+            android:text="The Trail Making Test is a neuropsychological test of visual attention and task switching. It consists of two parts in which the subject is instructed to connect a set of 25 dots as quickly as possible while still maintaining accuracy.The test can provide information about visual search speed, scanning, speed of processing, mental flexibility, as well as executive functioning.It is sensitive to detecting cognitive impairment associated with dementia, for example, Alzheimer's disease."
+            android:textColor="#00000F"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00000F"
+            android:textStyle="bold"
+            android:padding = "30dp"
+            android:text="For part A you have to touch numbers from 1 to 25 in ascending order and for part B you have to alternate between numbers and letters like so: 1-A-2-B.. and so on"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="Average completion time for part A is 90 seconds and for part B 3 minutes"
+            android:textColor="#00000F"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:text="Back to main screen"
+            android:padding="10dp"
+            android:id="@+id/backButton"/>
+
+
+    </LinearLayout>
+    
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white">
+        <include
+            layout="@layout/main_nav_drawer"/>
+    </RelativeLayout>
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
