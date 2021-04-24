@@ -46,7 +46,11 @@ class MainActivity : AppCompatActivity() {
 
 
       //  val userInfo = getSharedPreferences("UserInfo",0)
-        fullName.setText("Hello Mr. " + FirebaseAuth.getInstance().currentUser.displayName.toString())
+        if(FirebaseAuth.getInstance().currentUser == null) {
+            fullName.setText("Hello Mr.  Unknown")
+        } else {
+            fullName.setText("Hello Mr. " + FirebaseAuth.getInstance().currentUser.displayName.toString())
+        }
       //  Log.d("Email" , "THIS IS THE USERSEMAIL " + FirebaseAuth.getInstance().currentUser.email.toString())
 
         val sharedPreferences = getSharedPreferences("sharedPrefs",0)

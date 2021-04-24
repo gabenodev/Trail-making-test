@@ -1,7 +1,6 @@
 package com.example.tmt
 
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.PointF
 import android.graphics.drawable.AnimationDrawable
@@ -11,16 +10,13 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
-import android.widget.Button
+import android.widget.AbsoluteLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import kotlinx.android.synthetic.main.activity_main3.*
 import kotlinx.android.synthetic.main.activity_t_m_t_a.*
-import java.lang.Math.max
 import java.lang.Math.pow
 import java.util.*
 import kotlin.math.sqrt
@@ -95,22 +91,29 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
         )
         // Log.d("Message","This is tvlist of 0"+TVlist[2]);
 
-        fun setCoordinate(TVlist: ArrayList<TextView>) {
+
+
+
+        val boundW = relativeLayout.measuredWidth + 1080
+        val boundH = relativeLayout.measuredHeight + 1920
+
+         relativeLayout.viewTreeObserver.addOnGlobalLayoutListener() {
+        //   relativeLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
+
+
             for (i in 0..24) {
 
 
-                relativeLayout.viewTreeObserver.addOnGlobalLayoutListener {
-                    relativeLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
-
-                    TVlist[i].setX(Random().nextInt(relativeLayout.width).toFloat())
-                    TVlist[i].setY(Random().nextInt(relativeLayout.height).toFloat())
+                    TVlist[i].setX(Random().nextInt(boundW).toFloat())
+                    TVlist[i].setY(Random().nextInt(boundH).toFloat())
 
 
                     while(TVlist[i].x <= 0F || TVlist[i].x >= 900F || TVlist[i].y <= 0F || TVlist[i].y >= 1400F)
                     {
-                        TVlist[i].setX(Random().nextInt(relativeLayout.width).toFloat())
-                        TVlist[i].setY(Random().nextInt(relativeLayout.height).toFloat())
+                        TVlist[i].setX(Random().nextInt(boundW).toFloat())
+                        TVlist[i].setY(Random().nextInt(boundH).toFloat())
                     }
+
 
 
                     var overLapping: Boolean? = null
@@ -120,7 +123,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
                     {
                         if(i != j) {
 
-                            if (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 60F) {
+                            if (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 50F) {
                                 overLapping = true
 
                                 if (overLapping) {
@@ -131,49 +134,44 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
                                     )
 
                                     TVlist[j].setX(
-                                        Random().nextInt(relativeLayout.width).toFloat()
+                                        Random().nextInt(boundW).toFloat()
                                     )
                                     TVlist[j].setY(
-                                        Random().nextInt(relativeLayout.width).toFloat()
+                                        Random().nextInt(boundH).toFloat()
                                     )
+
 
                                 }
 
                                 while (TVlist[j].x <= 0F || TVlist[j].x >= 880F || TVlist[j].y <= 0F || TVlist[j].y >= 1650) {
                                     TVlist[j].setX(
-                                        Random().nextInt(relativeLayout.width).toFloat()
+                                        Random().nextInt(boundW).toFloat()
                                     )
                                     TVlist[j].setY(
-                                        Random().nextInt(relativeLayout.height).toFloat()
+                                        Random().nextInt(boundH).toFloat()
                                     )
                                 }
                             }
                         }
                     }
-
-
                 }
 
 
-            }
+           }
 
 
-        }
 
 
-        fun setText(
-            TVlist: ArrayList<TextView>,
-            messages: Array<String>
-        ): Unit {
+
+
             for (i in 0..24) {
                 TVlist!![i]!!.setText(messages!![i])
+
             }
-        }
 
-        setCoordinate(TVlist)
-        setText(TVlist, messages)
 
-        Log.d("TagforCoordinate", "The coordinates for tv 0 are: " + TVlist[0].x + " " + TVlist[0].y)
+
+
 
 
         var isPressed  = arrayListOf<Boolean>(false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false)
@@ -447,14 +445,21 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
          * Making a line between 2 points
          */
 
-
         mLineView = findViewById(R.id.lineView)
-        val PointA = PointF(TVlist[0].x, TVlist[0].y)
-        val PointB = PointF(TVlist[1].x, TVlist[1].y)
+        var PointA = PointF(TVlist[0].x, TVlist[0].y)
+        var PointB = PointF(TVlist[1].x, TVlist[1].y)
         mLineView.setPointA(PointA)
         mLineView.setPointB(PointB)
         mLineView.draw()
-        Log.d("TAG FOR COORDINATES", "This are the coordinates for first TV" + TVlist[0].x + "    "+ TVlist[0].y)
+        Log.d(
+            "TAG FOR COORDINATES",
+            "This are the coordinates for first TV" + TVlist[0].x + "    " + TVlist[0].y
+        )
+
+
+
+
+
 
 
 
@@ -464,6 +469,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
 
     override fun onGlobalLayout() {
         TODO("Not yet implemented")
+
     }
 
     fun saveData()

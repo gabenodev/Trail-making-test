@@ -23,17 +23,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginStart="356dp"
         android:layout_marginLeft="356dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_x="361dp"
+        android:layout_y="2dp"
         android:background="@drawable/bg_round"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:textSize="12sp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:id = "@+id/tv"
@@ -454,6 +456,7 @@
         android:text="1"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
     <TextView
         android:id="@+id/tv23"
         android:layout_width="30dp"
@@ -466,6 +469,8 @@
         android:layout_marginStart="189dp"
         android:layout_marginLeft="189dp"
         android:layout_marginTop="460dp"
+        android:layout_x="49dp"
+        android:layout_y="282dp"
         android:background="@drawable/circle"
         android:gravity="center"
         android:shadowColor="@android:color/white"
@@ -473,6 +478,7 @@
         android:text="1"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
     <TextView
         android:id="@+id/tv24"
         android:layout_width="30dp"
@@ -485,6 +491,8 @@
         android:layout_marginStart="189dp"
         android:layout_marginLeft="189dp"
         android:layout_marginTop="460dp"
+        android:layout_x="194dp"
+        android:layout_y="175dp"
         android:background="@drawable/circle"
         android:gravity="center"
         android:shadowColor="@android:color/white"
@@ -492,6 +500,7 @@
         android:text="1"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
     <TextView
         android:id="@+id/tv25"
         android:layout_width="30dp"
@@ -504,6 +513,8 @@
         android:layout_marginStart="189dp"
         android:layout_marginLeft="189dp"
         android:layout_marginTop="460dp"
+        android:layout_x="84dp"
+        android:layout_y="148dp"
         android:background="@drawable/circle"
         android:gravity="center"
         android:shadowColor="@android:color/white"
@@ -511,6 +522,7 @@
         android:text="1"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"

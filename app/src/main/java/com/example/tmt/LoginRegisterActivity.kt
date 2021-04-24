@@ -33,9 +33,9 @@ open class LoginRegisterActivity : AppCompatActivity() {
         val userSharedPreferences = getSharedPreferences("UserInfo",0)
         val editor = userSharedPreferences.edit()
 
-        fun saveUserInfo() {
 
-            if (FirebaseAuth.getInstance().currentUser.email == null) {
+
+            if (FirebaseAuth.getInstance().currentUser == null) {
                 val editor: SharedPreferences.Editor = userSharedPreferences.edit()
                 editor.putString("UserInfo", "This is a default name")
                 editor.apply()
@@ -45,7 +45,7 @@ open class LoginRegisterActivity : AppCompatActivity() {
                     putString("UserInfo", FirebaseAuth.getInstance().currentUser.email.toString())
                 }.apply()
             }
-        }
+
 
         val provider: List<AuthUI.IdpConfig> = Arrays.asList(
             AuthUI.IdpConfig.EmailBuilder().build()
