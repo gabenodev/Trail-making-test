@@ -116,31 +116,24 @@ class TMTB : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
 
 
 
-                var overLapping: Boolean? = null
-
-
                 for(j in 1 .. 24)
                 {
                     if(i != j) {
 
-                        if (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 50F) {
-                            overLapping = true
+                        while (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 50F) {
+                            Log.d(
+                                "THIS IS TAGGED MESSAGE",
+                                "THOSE TEXT VIEWS ARE TOO CLOSE" + TVlist[i] + "," + TVlist[j]
+                            )
 
-                            if (overLapping) {
+                            TVlist[j].setX(
+                                Random().nextInt(boundW).toFloat()
+                            )
+                            TVlist[j].setY(
+                                Random().nextInt(boundH).toFloat()
+                            )
 
-                                Log.d(
-                                    "THIS IS TAGGED MESSAGE",
-                                    "THOSE TEXT VIEWS ARE TOO CLOSE" + TVlist[i] + "," + TVlist[j]
-                                )
 
-                                TVlist[j].setX(
-                                    Random().nextInt(boundW).toFloat()
-                                )
-                                TVlist[j].setY(
-                                    Random().nextInt(boundH).toFloat()
-                                )
-
-                            }
 
                             while (TVlist[j].x <= 0F || TVlist[j].x >= 880F || TVlist[j].y <= 0F || TVlist[j].y >= 1650) {
                                 TVlist[j].setX(
@@ -151,6 +144,8 @@ class TMTB : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
                                 )
                             }
                         }
+
+
                     }
                 }
 

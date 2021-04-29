@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         val timeA = findViewById<TextView>(R.id.timeA)
         val timeB = findViewById<TextView>(R.id.timeB)
+
+        val metrics = findViewById<LinearLayout>(R.id.Metrics)
 
         val fullName = findViewById<TextView>(R.id.fullName)
 
@@ -150,6 +153,11 @@ class MainActivity : AppCompatActivity() {
             AuthUI.getInstance().signOut(this)
             val intent = Intent(this,LoginRegisterActivity::class.java)
             startActivity(intent)
+        }
+
+
+        metrics.setOnClickListener {
+
         }
 
 

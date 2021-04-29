@@ -91,83 +91,76 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
         )
         // Log.d("Message","This is tvlist of 0"+TVlist[2]);
 
+        for (i in 0..24) {
+            TVlist!![i]!!.setText(messages!![i])
 
+        }
 
 
         val boundW = relativeLayout.measuredWidth + 1080
         val boundH = relativeLayout.measuredHeight + 1920
-
-         relativeLayout.viewTreeObserver.addOnGlobalLayoutListener() {
-        //   relativeLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
+        mLineView = findViewById(R.id.lineView)
+        relativeLayout.viewTreeObserver.addOnGlobalLayoutListener() {
+            relativeLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
 
             for (i in 0..24) {
 
 
+                TVlist[i].setX(Random().nextInt(boundW).toFloat())
+                TVlist[i].setY(Random().nextInt(boundH).toFloat())
+
+
+
+                while(TVlist[i].x <= 0F || TVlist[i].x >= 900F || TVlist[i].y <= 0F || TVlist[i].y >= 1400F)
+                {
                     TVlist[i].setX(Random().nextInt(boundW).toFloat())
                     TVlist[i].setY(Random().nextInt(boundH).toFloat())
-
-
-                    while(TVlist[i].x <= 0F || TVlist[i].x >= 900F || TVlist[i].y <= 0F || TVlist[i].y >= 1400F)
-                    {
-                        TVlist[i].setX(Random().nextInt(boundW).toFloat())
-                        TVlist[i].setY(Random().nextInt(boundH).toFloat())
-                    }
+                }
 
 
 
-                    var overLapping: Boolean? = null
+                for(j in 1 .. 24)
+                {
+                    if(i != j) {
+
+                        while (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 50F) {
+                            Log.d(
+                                "THIS IS TAGGED MESSAGE",
+                                "THOSE TEXT VIEWS ARE TOO CLOSE" + TVlist[i] + "," + TVlist[j]
+                            )
+
+                            TVlist[j].setX(
+                                Random().nextInt(boundW).toFloat()
+                            )
+                            TVlist[j].setY(
+                                Random().nextInt(boundH).toFloat()
+                            )
 
 
-                    for(j in 1 .. 24)
-                    {
-                        if(i != j) {
 
-                            if (sqrt(pow(((TVlist[i].x - TVlist[j].x).toDouble()), 2.0) + pow(((TVlist[i].y - TVlist[j].y).toDouble()), 2.0)) < 50F) {
-                                overLapping = true
-
-                                if (overLapping) {
-
-                                    Log.d(
-                                        "THIS IS TAGGED MESSAGE",
-                                        "THOSE TEXT VIEWS ARE TOO CLOSE" + TVlist[i] + "," + TVlist[j]
-                                    )
-
-                                    TVlist[j].setX(
-                                        Random().nextInt(boundW).toFloat()
-                                    )
-                                    TVlist[j].setY(
-                                        Random().nextInt(boundH).toFloat()
-                                    )
-
-
-                                }
-
-                                while (TVlist[j].x <= 0F || TVlist[j].x >= 880F || TVlist[j].y <= 0F || TVlist[j].y >= 1650) {
-                                    TVlist[j].setX(
-                                        Random().nextInt(boundW).toFloat()
-                                    )
-                                    TVlist[j].setY(
-                                        Random().nextInt(boundH).toFloat()
-                                    )
-                                }
+                            while (TVlist[j].x <= 0F || TVlist[j].x >= 880F || TVlist[j].y <= 0F || TVlist[j].y >= 1650) {
+                                TVlist[j].setX(
+                                    Random().nextInt(boundW).toFloat()
+                                )
+                                TVlist[j].setY(
+                                    Random().nextInt(boundH).toFloat()
+                                )
                             }
                         }
+
+
                     }
                 }
 
 
-           }
-
-
-
-
-
-
-            for (i in 0..24) {
-                TVlist!![i]!!.setText(messages!![i])
-
             }
+
+        }
+
+
+
+
 
 
 
@@ -444,7 +437,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
         /**
          * Making a line between 2 points
          */
-
+/*
         mLineView = findViewById(R.id.lineView)
         var PointA = PointF(TVlist[0].x, TVlist[0].y)
         var PointB = PointF(TVlist[1].x, TVlist[1].y)
@@ -455,6 +448,8 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
             "TAG FOR COORDINATES",
             "This are the coordinates for first TV" + TVlist[0].x + "    " + TVlist[0].y
         )
+
+ */
 
 
 
