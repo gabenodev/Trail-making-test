@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         val timeA = findViewById<TextView>(R.id.timeA)
         val timeB = findViewById<TextView>(R.id.timeB)
 
-        val metrics = findViewById<LinearLayout>(R.id.Metrics)
+       // val metrics = findViewById<LinearLayout>(R.id.Metrics)
 
         val fullName = findViewById<TextView>(R.id.fullName)
 
@@ -147,17 +147,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        ClickMetrics.setOnClickListener()
+        {
+            val intent = Intent(this,Metrics::class.java)
+            startActivity(intent)
+        }
 
         ClickLogout.setOnClickListener{
             // Make the user logout
             AuthUI.getInstance().signOut(this)
             val intent = Intent(this,LoginRegisterActivity::class.java)
             startActivity(intent)
-        }
-
-
-        metrics.setOnClickListener {
-
         }
 
 

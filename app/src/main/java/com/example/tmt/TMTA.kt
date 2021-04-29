@@ -99,7 +99,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
 
         val boundW = relativeLayout.measuredWidth + 1080
         val boundH = relativeLayout.measuredHeight + 1920
-        mLineView = findViewById(R.id.lineView)
+
         relativeLayout.viewTreeObserver.addOnGlobalLayoutListener() {
             relativeLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
@@ -437,7 +437,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
         /**
          * Making a line between 2 points
          */
-/*
+
         mLineView = findViewById(R.id.lineView)
         var PointA = PointF(TVlist[0].x, TVlist[0].y)
         var PointB = PointF(TVlist[1].x, TVlist[1].y)
@@ -449,7 +449,7 @@ class TMTA : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
             "This are the coordinates for first TV" + TVlist[0].x + "    " + TVlist[0].y
         )
 
- */
+
 
 
 
